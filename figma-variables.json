@@ -94,7 +94,32 @@
       { "name": "color/border/strong", "type": "COLOR", "values": { "Light": { "alias": "color/neutral/700" } } },
       { "name": "color/border/brand", "type": "COLOR", "values": { "Light": { "alias": "color/brand/600" } } },
       { "name": "color/border/error", "type": "COLOR", "values": { "Light": { "alias": "color/error/600" } } },
-      { "name": "color/border/focus", "type": "COLOR", "values": { "Light": { "alias": "color/brand/600" } } }
+      { "name": "color/border/focus", "type": "COLOR", "values": { "Light": { "alias": "color/brand/600" } } },
+      { "name": "color/surface/brand-hover", "type": "COLOR", "values": { "Light": { "alias": "color/brand/700" } } },
+      { "name": "color/surface/brand-active", "type": "COLOR", "values": { "Light": { "alias": "color/brand/800" } } },
+      { "name": "color/surface/hover", "type": "COLOR", "values": { "Light": { "alias": "color/neutral/50" } } },
+      { "name": "color/surface/active", "type": "COLOR", "values": { "Light": { "alias": "color/neutral/100" } } }
+    ]
+  },
+  {
+    "collection": "Component",
+    "modes": ["Light"],
+    "variables": [
+      { "name": "color/button/primary-bg", "type": "COLOR", "values": { "Light": { "alias": "color/surface/brand" } } },
+      { "name": "color/button/primary-bg-hover", "type": "COLOR", "values": { "Light": { "alias": "color/surface/brand-hover" } } },
+      { "name": "color/button/primary-bg-active", "type": "COLOR", "values": { "Light": { "alias": "color/surface/brand-active" } } },
+      { "name": "color/button/primary-text", "type": "COLOR", "values": { "Light": { "alias": "color/text/on-brand" } } },
+      { "name": "color/button/secondary-bg", "type": "COLOR", "values": { "Light": { "alias": "color/surface/base" } } },
+      { "name": "color/button/secondary-bg-hover", "type": "COLOR", "values": { "Light": { "alias": "color/surface/hover" } } },
+      { "name": "color/button/secondary-bg-active", "type": "COLOR", "values": { "Light": { "alias": "color/surface/active" } } },
+      { "name": "color/button/secondary-text", "type": "COLOR", "values": { "Light": { "alias": "color/text/primary" } } },
+      { "name": "color/button/secondary-border", "type": "COLOR", "values": { "Light": { "alias": "color/border/default" } } },
+      { "name": "color/button/ghost-bg-hover", "type": "COLOR", "values": { "Light": { "alias": "color/surface/hover" } } },
+      { "name": "color/button/ghost-bg-active", "type": "COLOR", "values": { "Light": { "alias": "color/surface/active" } } },
+      { "name": "color/button/ghost-text", "type": "COLOR", "values": { "Light": { "alias": "color/text/brand" } } },
+      { "name": "color/button/disabled-bg", "type": "COLOR", "values": { "Light": { "alias": "color/surface/disabled" } } },
+      { "name": "color/button/disabled-text", "type": "COLOR", "values": { "Light": { "alias": "color/text/disabled" } } },
+      { "name": "color/button/focus-ring", "type": "COLOR", "values": { "Light": { "alias": "color/border/focus" } } }
     ]
   }
 ]
