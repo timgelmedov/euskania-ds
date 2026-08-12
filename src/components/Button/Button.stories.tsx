@@ -26,7 +26,7 @@ const meta = {
     },
     disabled: { control: 'boolean' },
   },
-  args: { children: 'Кнопка' },
+  args: { children: 'Botón' },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -71,10 +71,10 @@ export const States: Story = {
         {(['primary', 'secondary', 'ghost'] as const).map((variant) => (
           <tr key={variant}>
             <td className="text-text-secondary text-sm">{variant}</td>
-            <td><Button {...args} variant={variant}>Кнопка</Button></td>
-            <td><Button {...args} variant={variant} state="hover">Кнопка</Button></td>
-            <td><Button {...args} variant={variant} state="active">Кнопка</Button></td>
-            <td><Button {...args} variant={variant} disabled>Кнопка</Button></td>
+            <td><Button {...args} variant={variant}>Botón</Button></td>
+            <td><Button {...args} variant={variant} state="hover">Botón</Button></td>
+            <td><Button {...args} variant={variant} state="active">Botón</Button></td>
+            <td><Button {...args} variant={variant} disabled>Botón</Button></td>
           </tr>
         ))}
       </tbody>
@@ -85,10 +85,10 @@ export const States: Story = {
 export const WithIcons: Story = {
   render: (args) => (
     <div className="flex items-center gap-4">
-      <Button {...args} startIcon={<span aria-hidden>←</span>}>Назад</Button>
-      <Button {...args} endIcon={<span aria-hidden>→</span>}>Далі</Button>
+      <Button {...args} startIcon={<span aria-hidden>←</span>}>Atrás</Button>
+      <Button {...args} endIcon={<span aria-hidden>→</span>}>Siguiente</Button>
       {/* Кнопка без тексту зобов'язана мати aria-label — інакше Button попередить у консолі */}
-      <Button {...args} aria-label="Закрити">
+      <Button {...args} aria-label="Cerrar">
         <span aria-hidden>×</span>
       </Button>
     </div>
@@ -104,7 +104,7 @@ export const DoesNotSubmitForm: Story = {
         alert('Форма засабмічена — цього не мало статись');
       }}
     >
-      <Button {...args}>Не сабмітить</Button>
+      <Button {...args}>No envía el formulario</Button>
     </form>
   ),
 };
