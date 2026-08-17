@@ -19,11 +19,20 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const IN = join(root, "figma-variables.json");
 const OUT = join(root, "tokens.json");
 
+/**
+ * Накреслення в Figma зберігаються як назви стилів ("Medium", "Semi Bold"),
+ * бо цього вимагає Plugin API. У CSS вони не мають сенсу — там потрібні числа,
+ * а Tailwind і так дає font-medium / font-semibold. Тому не експортуються.
+ */
+const SKIP = /^font\/weight\//;
+
 /** Ім'я Figma → шлях DTCG, з поправкою на неймспейси Tailwind */
 function toPath(figmaName) {
   const parts = figmaName.split("/");
   if (parts[0] === "font" && parts[1] === "size") return ["text", ...parts.slice(2)];
   if (parts[0] === "font" && parts[1] === "family") return ["font", ...parts.slice(2)];
+  // Tailwind тримає інтерліньяж у неймспейсі --leading-*, не --font-line-height-*
+  if (parts[0] === "font" && parts[1] === "line-height") return ["leading", ...parts.slice(2)];
   return parts;
 }
 
@@ -58,6 +67,7 @@ for (const collection of collections) {
   const defaultMode = collection.modes[0];
 
   for (const variable of collection.variables) {
+    if (SKIP.test(variable.name)) continue;
     const type = dtcgType(variable.name, variable.type);
     setDeep(tokens, toPath(variable.name), {
       $type: type,

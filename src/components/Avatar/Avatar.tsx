@@ -1,5 +1,6 @@
 import { forwardRef, type HTMLAttributes } from 'react';
 import { cn } from '../../lib/cn';
+import { text } from '../../lib/typography';
 
 export type AvatarSize = 'sm' | 'md' | 'lg';
 
@@ -12,9 +13,9 @@ export interface AvatarProps extends HTMLAttributes<HTMLSpanElement> {
 
 // Діаметри збігаються з висотами Button: 32 / 40 / 48
 const SIZE: Record<AvatarSize, string> = {
-  sm: 'size-8 text-sm',
-  md: 'size-10 text-sm',
-  lg: 'size-12 text-md',
+  sm: `size-8 ${text.labelSm}`,
+  md: `size-10 ${text.labelSm}`,
+  lg: `size-12 ${text.labelMd}`,
 };
 
 /** Перші літери перших двох слів: «Euskania Solar» → «ES». */
@@ -38,7 +39,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
       role="img"
       aria-label={name}
       className={cn(
-        'font-base inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full font-medium',
+        'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full',
         'bg-avatar-bg text-avatar-text',
         SIZE[size],
         className,

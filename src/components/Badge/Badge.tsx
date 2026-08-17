@@ -1,5 +1,6 @@
 import { forwardRef, type HTMLAttributes } from 'react';
 import { cn } from '../../lib/cn';
+import { text } from '../../lib/typography';
 
 export type BadgeTone = 'neutral' | 'brand' | 'success' | 'error';
 
@@ -26,7 +27,8 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(
     <span
       ref={ref}
       className={cn(
-        'font-base inline-flex items-center rounded-full px-2 py-1 text-xs font-medium',
+        'inline-flex items-center rounded-full px-2 py-1',
+        text.labelXs,
         TONE[tone],
         className,
       )}

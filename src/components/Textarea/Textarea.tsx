@@ -1,5 +1,6 @@
 import { forwardRef, useId, type TextareaHTMLAttributes } from 'react';
 import { cn } from '../../lib/cn';
+import { text } from '../../lib/typography';
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
@@ -18,7 +19,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <label htmlFor={fieldId} className="text-input-label font-base text-sm font-medium">
+        <label htmlFor={fieldId} className={cn('text-input-label', text.labelSm)}>
           {label}
         </label>
       )}
@@ -30,7 +31,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
         aria-invalid={invalid || undefined}
         aria-describedby={hintId}
         className={cn(
-          'font-base w-full rounded-md border bg-input-bg p-3 text-md text-input-text',
+          'w-full rounded-md border bg-input-bg p-3 text-input-text',
+          text.bodyMd,
           'placeholder:text-input-placeholder',
           'transition-colors outline-none',
           invalid ? 'border-input-border-error' : 'border-input-border hover:border-input-border-hover',
@@ -42,7 +44,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
       />
 
       {hint && (
-        <span id={hintId} className={cn('font-base text-xs', invalid ? 'text-input-hint-error' : 'text-input-hint')}>
+        <span id={hintId} className={cn(text.bodyXs, invalid ? 'text-input-hint-error' : 'text-input-hint')}>
           {hint}
         </span>
       )}

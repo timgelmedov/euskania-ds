@@ -142,11 +142,50 @@ Component    прив'язка до компонента            color/button
 
 ## Типографіка
 
-Одне сімейство — **Outfit**.
+### Колекція Typography з режимами
+
+Сімейство, накреслення та інтерліньяж живуть в окремій колекції **Typography**
+з режимом (зараз єдиний — `Outfit`). Це зроблено саме заради заміни шрифту:
+додаєш режим, задаєш у ньому інше сімейство — і воно міняється по всьому файлу,
+бо всі 13 текстових стилів прив'язані до змінної, а не до конкретного шрифту.
 
 ```
-font/family/base = Outfit
-font/size/xs  = 12px    font/size/lg  = 18px
-font/size/sm  = 14px    font/size/xl  = 20px
-font/size/md  = 16px    font/size/2xl = 24px
+font/family/base    = Outfit
+font/weight/regular = Regular      font/line-height/xs = 16px
+font/weight/medium  = Medium       font/line-height/sm = 20px
+font/weight/semibold= SemiBold     font/line-height/md = 24px
+                                   font/line-height/lg = 28px
+font/size/xs = 12px  lg = 18px     font/line-height/xl = 32px
+font/size/sm = 14px  xl = 20px
+font/size/md = 16px  2xl = 24px
 ```
+
+**Пастка при додаванні режиму:** назви накреслень різняться між сімействами.
+В Outfit це `SemiBold`, в Inter — `Semi Bold` із пробілом. Тому у новому режимі
+треба перевизначати не лише `font/family/base`, а й усі три `font/weight/*`,
+і завантажити шрифт до присвоєння значень.
+
+### Текстові стилі
+
+13 стилів, кожен прив'язує чотири поля: `fontFamily`, `fontStyle`, `fontSize`,
+`lineHeight`. Жоден текстовий вузол не має задавати шрифт напряму.
+
+| Стиль | Накреслення | Розмір | Інтерліньяж |
+|---|---|---|---|
+| `heading/2xl` `heading/xl` `heading/lg` | SemiBold | 24 / 20 / 18 | 32 / 28 / 24 |
+| `label/2xl` `label/xl` `label/lg` | Medium | 24 / 20 / 18 | 32 / 28 / 24 |
+| `label/md` `label/sm` `label/xs` | Medium | 16 / 14 / 12 | 24 / 20 / 16 |
+| `body/lg` `body/md` `body/sm` `body/xs` | Regular | 18 / 16 / 14 / 12 | 28 / 24 / 20 / 16 |
+
+У коді їм відповідає `src/lib/typography.ts` — той самий набір як Tailwind-класи.
+Компоненти беруть типографіку звідти, а не збирають `text-sm font-medium` вручну.
+
+Зверни увагу: `body/lg` має інтерліньяж 28, а `label/lg` — 24 при однаковому
+розмірі 18. Тому пара «розмір + інтерліньяж» задається явно, а не через
+`--text-*--line-height` у Tailwind.
+
+### Що не експортується в CSS
+
+`font/weight/*` лишаються тільки у Figma: там вони зберігають назви накреслень
+(`Medium`, `Semi Bold`), яких у CSS не існує — там потрібні числа. Tailwind і так
+дає `font-medium` / `font-semibold`.

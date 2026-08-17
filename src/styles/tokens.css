@@ -151,4 +151,9 @@
   --text-xl: 20px;
   --text-2xl: 24px;
   --font-base: Outfit;
+  --leading-xs: 16px;
+  --leading-sm: 20px;
+  --leading-md: 24px;
+  --leading-lg: 28px;
+  --leading-xl: 32px;
 }
