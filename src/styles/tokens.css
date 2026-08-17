@@ -24,6 +24,7 @@
   --color-neutral-300: #c0c6cf;
   --color-neutral-400: #a3aab5;
   --color-neutral-500: #838b98;
+  --color-neutral-550: #6e7682;
   --color-neutral-600: #4d5561;
   --color-neutral-700: #39414c;
   --color-neutral-800: #282f38;
@@ -67,7 +68,7 @@
   --color-surface-error-subtle: var(--color-error-50);
   --color-text-primary: var(--color-neutral-900);
   --color-text-secondary: var(--color-neutral-600);
-  --color-text-muted: var(--color-neutral-500);
+  --color-text-muted: var(--color-neutral-550);
   --color-text-on-brand: var(--color-neutral-0);
   --color-text-brand: var(--color-brand-600);
   --color-text-success: var(--color-success-600);
