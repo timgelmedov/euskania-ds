@@ -1,4 +1,5 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { text } from '../../lib/typography';
 
 /**
  * Стани взаємодії.
@@ -30,7 +31,7 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
 
 const BASE = [
   'inline-flex items-center justify-center',
-  'rounded-md font-base font-medium whitespace-nowrap',
+  'rounded-md whitespace-nowrap',
   'border border-transparent',
   'transition-colors duration-150',
   'cursor-pointer select-none',
@@ -58,11 +59,12 @@ const VARIANT: Record<ButtonVariant, string> = {
   ].join(' '),
 };
 
-// Висоти беруться зі шкали spacing: h-8 = 32px, h-10 = 40px, h-12 = 48px
+// Висоти беруться зі шкали spacing: h-8 = 32px, h-10 = 40px, h-12 = 48px.
+// Типографіка — стилі label/*, ті самі, що у Figma.
 const SIZE: Record<ButtonSize, string> = {
-  sm: 'h-8 gap-2 px-3 text-sm',
-  md: 'h-10 gap-2 px-4 text-md',
-  lg: 'h-12 gap-2 px-6 text-lg',
+  sm: `h-8 gap-2 px-3 ${text.labelSm}`,
+  md: `h-10 gap-2 px-4 ${text.labelMd}`,
+  lg: `h-12 gap-2 px-6 ${text.labelLg}`,
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(

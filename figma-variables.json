@@ -452,13 +452,6 @@
         "values": {
           "Mode 1": 24
         }
-      },
-      {
-        "name": "font/family/base",
-        "type": "STRING",
-        "values": {
-          "Mode 1": "Outfit"
-        }
       }
     ]
   },
@@ -1185,6 +1178,77 @@
           "Light": {
             "alias": "color/text/secondary"
           }
+        }
+      }
+    ]
+  },
+  {
+    "collection": "Typography",
+    "modes": [
+      "Outfit"
+    ],
+    "variables": [
+      {
+        "name": "font/family/base",
+        "type": "STRING",
+        "values": {
+          "Outfit": "Outfit"
+        }
+      },
+      {
+        "name": "font/weight/regular",
+        "type": "STRING",
+        "values": {
+          "Outfit": "Regular"
+        }
+      },
+      {
+        "name": "font/weight/medium",
+        "type": "STRING",
+        "values": {
+          "Outfit": "Medium"
+        }
+      },
+      {
+        "name": "font/weight/semibold",
+        "type": "STRING",
+        "values": {
+          "Outfit": "SemiBold"
+        }
+      },
+      {
+        "name": "font/line-height/xs",
+        "type": "FLOAT",
+        "values": {
+          "Outfit": 16
+        }
+      },
+      {
+        "name": "font/line-height/sm",
+        "type": "FLOAT",
+        "values": {
+          "Outfit": 20
+        }
+      },
+      {
+        "name": "font/line-height/md",
+        "type": "FLOAT",
+        "values": {
+          "Outfit": 24
+        }
+      },
+      {
+        "name": "font/line-height/lg",
+        "type": "FLOAT",
+        "values": {
+          "Outfit": 28
+        }
+      },
+      {
+        "name": "font/line-height/xl",
+        "type": "FLOAT",
+        "values": {
+          "Outfit": 32
         }
       }
     ]

@@ -1,5 +1,6 @@
 import { forwardRef, useId, type InputHTMLAttributes } from 'react';
 import { cn } from '../../lib/cn';
+import { text } from '../../lib/typography';
 
 export interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;
@@ -17,7 +18,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
     <label
       htmlFor={fieldId}
       className={cn(
-        'font-base inline-flex items-center gap-2 text-md',
+        'inline-flex items-center gap-2',
+        text.bodyMd,
         disabled ? 'text-text-disabled cursor-not-allowed' : 'text-text-primary cursor-pointer',
         className,
       )}

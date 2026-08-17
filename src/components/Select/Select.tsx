@@ -1,5 +1,6 @@
 import { forwardRef, useId, type SelectHTMLAttributes } from 'react';
 import { cn } from '../../lib/cn';
+import { text } from '../../lib/typography';
 
 export type SelectSize = 'sm' | 'md' | 'lg';
 
@@ -10,10 +11,11 @@ export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement
   size?: SelectSize;
 }
 
+// Типографіка — стилі body/*, спільні з Input
 const SIZE: Record<SelectSize, string> = {
-  sm: 'h-8 pl-3 pr-8 text-sm',
-  md: 'h-10 pl-3 pr-8 text-md',
-  lg: 'h-12 pl-3 pr-8 text-lg',
+  sm: `h-8 pl-3 pr-8 ${text.bodySm}`,
+  md: `h-10 pl-3 pr-8 ${text.bodyMd}`,
+  lg: `h-12 pl-3 pr-8 ${text.bodyLg}`,
 };
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select(
@@ -27,7 +29,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <label htmlFor={fieldId} className="text-input-label font-base text-sm font-medium">
+        <label htmlFor={fieldId} className={cn('text-input-label', text.labelSm)}>
           {label}
         </label>
       )}
@@ -39,7 +41,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
           aria-invalid={invalid || undefined}
           aria-describedby={hintId}
           className={cn(
-            'font-base w-full appearance-none rounded-md border bg-input-bg text-input-text',
+            'w-full appearance-none rounded-md border bg-input-bg text-input-text',
             'transition-colors outline-none',
             invalid ? 'border-input-border-error' : 'border-input-border hover:border-input-border-hover',
             'focus-visible:border-input-border-focus focus-visible:border-2',
@@ -62,7 +64,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
       </div>
 
       {hint && (
-        <span id={hintId} className={cn('font-base text-xs', invalid ? 'text-input-hint-error' : 'text-input-hint')}>
+        <span id={hintId} className={cn(text.bodyXs, invalid ? 'text-input-hint-error' : 'text-input-hint')}>
           {hint}
         </span>
       )}

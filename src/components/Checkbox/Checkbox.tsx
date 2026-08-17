@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useId, useRef, type InputHTMLAttributes } from 'react';
 import { cn } from '../../lib/cn';
+import { text } from '../../lib/typography';
 
 export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;
@@ -29,7 +30,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
     <label
       htmlFor={fieldId}
       className={cn(
-        'font-base inline-flex items-center gap-2 text-md',
+        'inline-flex items-center gap-2',
+        text.bodyMd,
         disabled ? 'text-text-disabled cursor-not-allowed' : 'text-text-primary cursor-pointer',
         className,
       )}
@@ -56,7 +58,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
         aria-hidden
         className={cn(
           'inline-flex size-5 shrink-0 items-center justify-center rounded-sm border-2 transition-colors',
-          'border-control-border bg-control-bg text-xs font-semibold text-transparent',
+          'border-control-border bg-control-bg text-transparent',
+          text.labelXs,
           'peer-checked:border-control-border-checked peer-checked:bg-control-bg-checked peer-checked:text-control-mark',
           'peer-indeterminate:border-control-border-checked peer-indeterminate:bg-control-bg-checked peer-indeterminate:text-control-mark',
           'peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-border-focus',
