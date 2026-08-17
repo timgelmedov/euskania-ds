@@ -1,8 +1,9 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
+  // Патерн *.mdx прибрано: MDX-документації поки немає, і Storybook
+  // попереджав про нього при кожному старті. Повернути, коли зʼявиться.
   "stories": [
-    "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   "addons": [
