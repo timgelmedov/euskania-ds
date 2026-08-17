@@ -8,8 +8,8 @@ const meta = {
     docs: {
       description: {
         component:
-          'Кнопка. Усі кольори приходять із Figma через шар Component-токенів — ' +
-          'у компоненті немає жодного захардкодженого значення.',
+          'Botón. Todos los colores llegan desde Figma a través de la capa de tokens de ' +
+          'componente: no hay ni un solo valor escrito a mano.',
       },
     },
   },
@@ -22,7 +22,7 @@ const meta = {
       // mapping, а не literal undefined в options — інакше Storybook рендерить
       // пункт з підписом "undefined" замість дефолтного вибору
       mapping: { default: undefined, hover: 'hover', active: 'active' },
-      description: 'Тільки для документації — форсує стан. У коді використовуй псевдокласи.',
+      description: 'Solo para documentación: fuerza el estado. En código usa las pseudoclases.',
     },
     disabled: { control: 'boolean' },
   },

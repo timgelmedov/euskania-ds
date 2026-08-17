@@ -3,10 +3,11 @@ import { cn } from '../../lib/cn';
 import { text } from '../../lib/typography';
 
 export interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  /** Texto junto al control. */
   label?: string;
 }
 
-/** Використовується всередині групи з однаковим `name` — вибір лише один. */
+/** Botón de opción. Se usa dentro de un grupo con el mismo `name`: solo una selección posible. */
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   { label, className, id, disabled, ...props },
   ref,

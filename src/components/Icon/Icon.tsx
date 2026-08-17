@@ -4,10 +4,11 @@ import { cn } from '../../lib/cn';
 export type IconSize = 'sm' | 'md' | 'lg';
 
 export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
-  /** SVG-вузол з обраного набору іконок. Колір успадковується через currentColor. */
+  /** Nodo SVG del set de iconos elegido. El color se hereda vía `currentColor`. */
   children: ReactNode;
-  /** Доступна назва. Без неї іконка вважається декоративною і ховається від скрінрідера. */
+  /** Nombre accesible. Sin él el icono se considera decorativo y se oculta al lector de pantalla. */
   label?: string;
+  /** Lado del icono: 16 / 20 / 24 px. */
   size?: IconSize;
 }
 
@@ -18,11 +19,11 @@ const SIZE: Record<IconSize, string> = {
 };
 
 /**
- * Обгортка розміру й кольору для будь-якої SVG-іконки.
+ * Envoltorio de tamaño y color para cualquier icono SVG.
  *
- * Власного набору гліфів дизайн-система не містить свідомо: малювати іконки
- * з нуля означає отримати неузгоджений набір. Підключіть готовий набір
- * (Lucide, Phosphor) і передавайте його іконки як children.
+ * La biblioteca no incluye un set propio de glifos a propósito: dibujar iconos
+ * desde cero da un conjunto incoherente. Conecta un set existente (Lucide,
+ * Phosphor) y pasa sus iconos como children.
  */
 export const Icon = forwardRef<HTMLSpanElement, IconProps>(function Icon(
   { children, label, size = 'md', className, ...props },

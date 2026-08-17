@@ -5,9 +5,11 @@ import { text } from '../../lib/typography';
 export type AvatarSize = 'sm' | 'md' | 'lg';
 
 export interface AvatarProps extends HTMLAttributes<HTMLSpanElement> {
-  /** Повне імʼя — з нього беруться ініціали і формується доступний підпис. */
+  /** Nombre completo. De él salen las iniciales y el nombre accesible del avatar. */
   name: string;
+  /** Imagen opcional. Si falta, se muestran las iniciales. */
   src?: string;
+  /** Diámetro: 32 / 40 / 48 px, igual que las alturas de Button. */
   size?: AvatarSize;
 }
 

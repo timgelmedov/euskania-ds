@@ -3,15 +3,17 @@ import { cn } from '../../lib/cn';
 import { text } from '../../lib/typography';
 
 export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  /** Texto junto a la casilla. */
   label?: string;
-  /** Проміжний стан — для часткового вибору у групі. */
+  /** Estado parcial, para selecciones incompletas dentro de un grupo. */
   indeterminate?: boolean;
 }
 
 /**
- * Нативний input лишається у DOM і приймає фокус, але візуально прихований —
- * вигляд малює сусідній span. Так позначка лишається текстовим гліфом,
- * як у Figma, і компонент не тягне за собою іконковий набір.
+ * Casilla de verificación. El input nativo permanece en el DOM y recibe el foco,
+ * pero está oculto visualmente: el aspecto lo dibuja un span contiguo. Así la
+ * marca sigue siendo un glifo de texto, como en Figma, y el componente no
+ * arrastra ningún set de iconos.
  */
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
   { label, indeterminate = false, className, id, disabled, ...props },

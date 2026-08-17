@@ -3,16 +3,19 @@ import { cn } from '../../lib/cn';
 import { text } from '../../lib/typography';
 
 export interface TooltipProps {
-  /** Текст підказки. Тільки допоміжна інформація — не критична для розуміння. */
+  /** Texto de la pista. Solo información complementaria: nunca contenido imprescindible. */
   label: string;
+  /** Elemento que dispara la pista. */
   children: ReactNode;
+  /** Clases extra para el contenedor. */
   className?: string;
 }
 
 /**
- * Підказка зʼявляється і на наведення, і на фокус — інакше вона недоступна
- * з клавіатури. Позиціювання просте (зверху по центру): для складних випадків
- * потрібна бібліотека, і це буде окреме рішення.
+ * Pista contextual. Aparece al pasar el ratón y también al enfocar con teclado,
+ * de lo contrario sería inaccesible. El posicionamiento es simple (arriba,
+ * centrado): para casos complejos hace falta una librería, y eso será una
+ * decisión aparte.
  */
 export function Tooltip({ label, children, className }: TooltipProps) {
   const id = useId();
