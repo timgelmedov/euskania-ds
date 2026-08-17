@@ -10,13 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      # v5, а не v4: v4 тримається на Node.js 20, який GitHub уже позначив
+      # застарілим і примусово запускає на Node 24
+      - uses: actions/checkout@v5
         with:
           # Chromatic порівнює з попередніми білдами, тому потрібна вся історія,
           # а не типовий поверхневий клон
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm
