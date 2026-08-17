@@ -12,7 +12,8 @@
     "build-storybook": "storybook build",
     "tokens": "npm run tokens:export && npm run tokens:build",
     "tokens:export": "node scripts/figma-to-dtcg.mjs",
-    "tokens:build": "style-dictionary build"
+    "tokens:build": "style-dictionary build",
+    "chromatic": "chromatic"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -33,6 +34,7 @@
     "@vitejs/plugin-react": "^6.0.4",
     "@vitest/browser-playwright": "latest",
     "@vitest/coverage-v8": "latest",
+    "chromatic": "^18.2.0",
     "oxlint": "^1.75.0",
     "playwright": "latest",
     "storybook": "^10.5.7",

@@ -1,0 +1,41 @@
+name: Chromatic
+
+# Публікує Storybook і ганяє візуальні регресії на кожен push.
+# Токен живе лише у секреті репозиторію — у коді його немає.
+on: push
+
+jobs:
+  chromatic:
+    name: Publish to Chromatic
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Chromatic порівнює з попередніми білдами, тому потрібна вся історія,
+          # а не типовий поверхневий клон
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Токени згенеровані з Figma лежать у репозиторії. Якщо цей крок дає діф —
+      # хтось редагував їх руками або забув перезібрати після зміни у Figma.
+      - name: Check design tokens are in sync
+        run: |
+          npm run tokens
+          git diff --exit-code -- tokens.json src/styles/tokens.css
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # Візуальні зміни не валять пайплайн — вони потребують рев'ю
+          # у Chromatic, а не блокування push. Прибрати, коли зʼявиться
+          # окрема гілка релізу, яку треба захищати.
+          exitZeroOnChanges: true
