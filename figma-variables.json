@@ -125,6 +125,13 @@
         }
       },
       {
+        "name": "color/neutral/550",
+        "type": "COLOR",
+        "values": {
+          "Mode 1": "#6e7682"
+        }
+      },
+      {
         "name": "color/neutral/600",
         "type": "COLOR",
         "values": {
@@ -556,7 +563,7 @@
         "type": "COLOR",
         "values": {
           "Light": {
-            "alias": "color/neutral/500"
+            "alias": "color/neutral/550"
           }
         }
       },
