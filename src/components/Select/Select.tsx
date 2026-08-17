@@ -5,9 +5,13 @@ import { text } from '../../lib/typography';
 export type SelectSize = 'sm' | 'md' | 'lg';
 
 export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
+  /** Etiqueta sobre el campo. Sin ella, `aria-label` es obligatorio. */
   label?: string;
+  /** Ayuda o mensaje de error bajo el campo. */
   hint?: string;
+  /** Marca el campo como inválido: cambia el borde y la ayuda, y activa `aria-invalid`. */
   invalid?: boolean;
+  /** Altura y tipografía del control: 32 / 40 / 48 px. */
   size?: SelectSize;
 }
 

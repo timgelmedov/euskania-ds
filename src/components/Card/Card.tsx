@@ -4,8 +4,8 @@ import { cn } from '../../lib/cn';
 export type CardProps = HTMLAttributes<HTMLDivElement>;
 
 /**
- * Контейнер контенту. Відділяється від фону межею, а не тінню —
- * у системі немає шару elevation, це свідоме рішення.
+ * Contenedor de contenido. Se separa del fondo con un borde, no con sombra:
+ * el sistema no tiene capa de elevación, y es una decisión deliberada.
  */
 export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
   { className, children, ...props },

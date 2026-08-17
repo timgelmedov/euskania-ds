@@ -3,12 +3,13 @@ import { cn } from '../../lib/cn';
 import { text } from '../../lib/typography';
 
 export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  /** Texto junto al interruptor. */
   label?: string;
 }
 
 /**
- * На відміну від Checkbox, застосовує зміну одразу — без кнопки підтвердження.
- * Якщо дія потребує збереження, правильніший вибір Checkbox.
+ * Interruptor. A diferencia de Checkbox, aplica el cambio de inmediato, sin
+ * confirmación. Si la acción necesita guardarse, la elección correcta es Checkbox.
  */
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   { label, className, id, disabled, ...props },

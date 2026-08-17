@@ -5,12 +5,13 @@ import { text } from '../../lib/typography';
 export type InputSize = 'sm' | 'md' | 'lg';
 
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  /** Підпис над полем. Без нього обовʼязковий aria-label. */
+  /** Etiqueta sobre el campo. Sin ella, `aria-label` es obligatorio. */
   label?: string;
-  /** Підказка або текст помилки під полем. */
+  /** Ayuda o mensaje de error bajo el campo. */
   hint?: string;
-  /** Помилка змінює колір межі та підказки і вмикає aria-invalid. */
+  /** Marca el campo como inválido: cambia el borde y la ayuda, y activa `aria-invalid`. */
   invalid?: boolean;
+  /** Altura y tipografía del campo: 32 / 40 / 48 px. */
   size?: InputSize;
 }
 

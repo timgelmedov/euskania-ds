@@ -14,17 +14,19 @@ export type ButtonVariant = 'primary' | 'secondary' | 'ghost';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+  /** Jerarquía visual: primary una por pantalla, secondary para acciones no críticas, ghost sin peso visual. */
   variant?: ButtonVariant;
+  /** Altura y tipografía del botón: 32 / 40 / 48 px. */
   size?: ButtonSize;
-  /** Іконка перед текстом. Будь-який вузол — Button не залежить від набору іконок. */
+  /** Icono antes del texto. Cualquier nodo: Button no depende de un set de iconos concreto. */
   startIcon?: ReactNode;
-  /** Іконка після тексту. */
+  /** Icono después del texto. */
   endIcon?: ReactNode;
-  /** Тільки для Storybook: форсує візуальний стан. У продакшн-коді не використовується. */
+  /** Solo para documentación: fuerza un estado visual. En producción usa las pseudoclases. */
   state?: ButtonState;
   /**
-   * Нативний атрибут <button type>. Дефолт `button`, а не `submit`:
-   * інакше кнопка всередині <form> сабмітить її при кожному кліку.
+   * Atributo nativo `<button type>`. Por defecto `button`, no `submit`:
+   * de lo contrario el botón enviaría el formulario que lo contiene en cada clic.
    */
   type?: 'button' | 'submit' | 'reset';
 }

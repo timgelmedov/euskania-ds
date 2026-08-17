@@ -5,6 +5,7 @@ import { text } from '../../lib/typography';
 export type BadgeTone = 'neutral' | 'brand' | 'success' | 'error';
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
+  /** Intención del estado. Nunca sustituye al texto: el color no puede ser el único indicador. */
   tone?: BadgeTone;
 }
 
@@ -16,8 +17,9 @@ const TONE: Record<BadgeTone, string> = {
 };
 
 /**
- * Колір ніколи не є єдиним індикатором стану — текст усередині обовʼязковий.
- * Це вимога WCAG 1.4.1 і причина, чому у Badge немає варіанта «лише крапка».
+ * Etiqueta de estado. El color nunca es el único indicador: el texto dentro es
+ * obligatorio. Es un requisito de WCAG 1.4.1 y la razón de que Badge no tenga
+ * una variante de solo punto.
  */
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(
   { tone = 'neutral', className, children, ...props },

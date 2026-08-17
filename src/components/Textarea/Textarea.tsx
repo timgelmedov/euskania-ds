@@ -3,8 +3,11 @@ import { cn } from '../../lib/cn';
 import { text } from '../../lib/typography';
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  /** Etiqueta sobre el campo. Sin ella, `aria-label` es obligatorio. */
   label?: string;
+  /** Ayuda o mensaje de error bajo el campo. */
   hint?: string;
+  /** Marca el campo como inválido: cambia el borde y la ayuda, y activa `aria-invalid`. */
   invalid?: boolean;
 }
 
