@@ -6,5 +6,6 @@ export {
   ChevronDownGlyph,
   CloseGlyph,
   CheckGlyph,
+  TickCircleGlyph,
   ArrowDownGlyph,
 } from './glyphs';
