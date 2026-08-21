@@ -16,4 +16,5 @@ export * from './components/Radio';
 export * from './components/Select';
 export * from './components/Switch';
 export * from './components/Textarea';
+export * from './components/Timeline';
 export * from './components/Tooltip';
