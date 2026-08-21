@@ -1,6 +1,8 @@
 import { forwardRef, useId, type SelectHTMLAttributes } from 'react';
 import { cn } from '../../lib/cn';
 import { text } from '../../lib/typography';
+import { Icon } from '../Icon';
+import { ArrowDownGlyph } from '../Icon/glyphs';
 
 export type SelectSize = 'sm' | 'md' | 'lg';
 
@@ -58,13 +60,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
           {children}
         </select>
 
-        {/* стрілка — текстовий гліф, як і у Figma; aria-hidden, бо select уже озвучується */}
-        <span
-          aria-hidden
+        {/* іконка, а не текстовий гліф — так само, як у Figma.
+            Без aria-label, бо сам select уже озвучується скрінрідером */}
+        <Icon
+          size="md"
           className="text-input-placeholder pointer-events-none absolute top-1/2 right-3 -translate-y-1/2"
         >
-          ▾
-        </span>
+          <ArrowDownGlyph />
+        </Icon>
       </div>
 
       {hint && (
