@@ -152,10 +152,9 @@ export function Dropdown({ trigger, items, onSelect, className }: DropdownProps)
           className={cn(
             // 240px — ширина з Figma; шкала spacing не покриває ширини контейнерів
             'absolute top-full left-0 z-10 mt-1 min-w-[240px] py-1 outline-none',
+            // без тіні: у системі немає шару elevation, і меню, як і Card,
+            // відділяється від фону межею
             'bg-surface-base border-border-subtle rounded-md border',
-            // у системі немає шару elevation: shadow-md збігається з Figma
-            // по геометрії. Потрібен власний токен тіні
-            'shadow-md',
           )}
         >
           {items.map((item, i) => {
