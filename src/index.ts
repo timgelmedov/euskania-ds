@@ -10,6 +10,7 @@ export * from './components/Avatar';
 export * from './components/Badge';
 export * from './components/Button';
 export * from './components/Card';
+export * from './components/Dropdown';
 export * from './components/Checkbox';
 export * from './components/Icon';
 export * from './components/Input';
