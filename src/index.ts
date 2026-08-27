@@ -13,6 +13,7 @@ export * from './components/Card';
 export * from './components/Checkbox';
 export * from './components/Icon';
 export * from './components/Input';
+export * from './components/Modal';
 export * from './components/Radio';
 export * from './components/Select';
 export * from './components/Stepper';

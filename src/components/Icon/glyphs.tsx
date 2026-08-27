@@ -59,6 +59,24 @@ export const CheckGlyph = (props: GlyphProps) => (
   </svg>
 );
 
+/**
+ * Iconsax linear — попередження у шестикутнику.
+ * viewBox 40×40, на відміну від решти: гліф намальований у цій сітці.
+ */
+export const WarningGlyph = (props: GlyphProps) => (
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M20 12.9166V21.6666" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M35.1333 14.3001V25.7C35.1333 27.5667 34.1332 29.3001 32.5166 30.2501L22.6166 35.9668C20.9999 36.9001 18.9999 36.9001 17.3665 35.9668L7.46653 30.2501C5.84987 29.3168 4.84985 27.5834 4.84985 25.7V14.3001C4.84985 12.4334 5.84987 10.7 7.46653 9.75003L17.3665 4.03337C18.9832 3.10004 20.9832 3.10004 22.6166 4.03337L32.5166 9.75003C34.1332 10.7 35.1333 12.4168 35.1333 14.3001Z"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path d="M20 26.9999V27.1665" stroke="currentColor" strokeWidth="3.33333" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 /** Iconsax linear — галочка в колі, для завершених кроків Stepper. */
 export const TickCircleGlyph = (props: GlyphProps) => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
